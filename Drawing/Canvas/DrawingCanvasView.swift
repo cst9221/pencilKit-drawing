@@ -13,6 +13,7 @@ struct DrawingCanvasView: UIViewControllerRepresentable {
     @Environment(\.managedObjectContext) private var viewContext
     
     func updateUIViewController(_ uiViewController: DrawingCanvasViewController, context: Context) {
+        print(data.map { String(format: "%02x", $0) }.joined(), 12345)
         uiViewController.drawingData = data
     }
     typealias UIViewControllerType = DrawingCanvasViewController

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import Alamofire
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -28,16 +29,18 @@ struct ContentView: View {
                         })
                     }
                     .onDelete(perform: deleteItem)
+                    
  
                     Button(action: {
                         self.showSheet.toggle()
+                        
                     }, label: {
                         HStack {
                             Image(systemName: "plus")
                             Text("add Canvas")
                         }
-                    })
-                        .sheet(isPresented: $showSheet, content: {
+                        
+                    }).sheet(isPresented: $showSheet, content: {
                         AddNewCanvasView().environment(\.managedObjectContext, viewContext)
                     })
                 }
@@ -45,6 +48,7 @@ struct ContentView: View {
                 .toolbar {
                     EditButton()
                 }
+                
             }
             
             VStack{
@@ -53,6 +57,8 @@ struct ContentView: View {
                 Text("No canvas has been selected")
                     .font(.title)
             }
+            
+            
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
     }
@@ -60,7 +66,9 @@ struct ContentView: View {
     func deleteItem(at offset: IndexSet) -> Void {
         for index in offset{
             let itemToDelete = draws[index]
+            
             viewContext.delete(itemToDelete)
+            
             do{
                 try viewContext.save()
             }

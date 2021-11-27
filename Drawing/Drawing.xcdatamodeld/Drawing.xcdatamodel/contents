@@ -10,6 +10,6 @@
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="Draw" positionX="-54" positionY="0" width="128" height="74"/>
+        <element name="Draw" positionX="-54" positionY="-27" width="128" height="74"/>
     </elements>
 </model>

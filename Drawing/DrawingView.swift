@@ -19,7 +19,6 @@ struct DrawingView: View {
                 .environment(\.managedObjectContext, viewContext)
                 .navigationBarTitle(title ?? "Untitled", displayMode: .inline)
         }
-        .frame(width:100, height: 100)
         .foregroundColor(.yellow)
         .border(Color.red, width: 4)
     }
